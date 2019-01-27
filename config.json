@@ -1,0 +1,40 @@
+{
+	"database": {
+		"dialect": "mysql",
+		"username": "fork",
+		"password": "fork",
+		"dbname": "fork",
+		"logging": false,
+		"sync":{
+			"syncOnStartup": true,
+			"alter": false,
+			"force": false
+		},
+		"charset": "utf8mb4",
+		"collate": "utf8mb4_hungarian_ci"
+	},
+	"auth": {
+		"secret": "SpiUUjcoQfh8RSJKd0UMDrbaLTYww5xWrWuQIXAPx4qAheLDziQZ2h3AvHrtSZy",
+		"safeMode": true,
+		"expires": "0" 
+	},
+	"push":{
+		"public": "BNv9-YfsxiAFMUWKj7eSCpk1J-zCoAKdpfI5eXEXfb6UAV_XBjvlHGp5UKrT26NXymN-9BlSfcDJGjqT84-Xx0g",
+		"secret": "vHTYbMXWO9eTitZjb-PKHL0R3U8kHaC_tDMqEXM733k"
+	},
+	"port": 443,
+	"httpPort": 80,
+	"disableHttpServer": false,
+	"logging": true,
+	"loggingToFile": false,
+	"dev": false,
+	"domain": "sisakz.fork.hu",
+	"disableAutoCert": false,
+	"disableHttps": false,
+	"dns":{
+		"enabled": false,
+		"from": "local.fork.hu",
+		"to": "127.0.0.1",
+		"authority": "8.8.4.4"
+	}
+}

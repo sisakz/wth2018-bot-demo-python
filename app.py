@@ -1,9 +1,40 @@
-from flask import Flask
+from flask import Flask, request, jsonify, send_from_directory
+import json
+import os
+
+# Global states for store voting
+yes = 0
+no = 0
+
+# Create Flask HTTP server
 app = Flask(__name__)
 
+static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static')
+# Serve static webpage from /static
 @app.route("/")
-def hello():
-    return "Hello World!"
+def index():  
+	return app.send_static_file('index.html')
+
+@app.route('/<path:path>', methods=['GET'])
+def serve_static_dir(path):
+	return send_from_directory(static_file_dir, path)
+
+# /api/vote endpoint
+# GET - get vote result
+# POST - submit a new vote
+@app.route("/api/vote", methods = ['POST', 'GET'])
+def vote():
+		global yes, no
+		if request.method == 'GET':
+				return jsonify(yes = yes, no = no)
+		if request.method == 'POST':
+				vote = request.json["vote"]
+				if vote == "yes":
+					yes += 1
+				else:
+					no += 1	
+				return jsonify(yes = yes, no = no)
 
 if __name__ == "__main__":
+	# run Flask HTTP server
 	app.run()
