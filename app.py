@@ -35,6 +35,20 @@ def vote():
 					no += 1	
 				return jsonify(yes = yes, no = no)
 
+# /api/hook endpoint
+# POST - webhook for the bot
+@app.route("/api/hook", methods = ['POST', 'GET'])
+def hook():
+	global webhookMessage
+	if request.method == 'GET':
+		return webhookMessage
+	if request.method == 'POST':
+		webhookMessage = request.json()
+		print(webhookMessage)
+		return webhookMessage
+
+
+
 if __name__ == "__main__":
 	# run Flask HTTP server
 	app.run()
