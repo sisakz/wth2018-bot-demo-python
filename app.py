@@ -43,7 +43,7 @@ def hook():
 	if request.method == 'GET':
 		return webhookMessage
 	if request.method == 'POST':
-		webhookMessage = request.json()
+		webhookMessage = request.json
 		print(webhookMessage)
 		return webhookMessage
 
