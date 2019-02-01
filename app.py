@@ -59,7 +59,7 @@ def getMessage(messageId):
 
 def processMessage(message):
 	botname = messages[17:] #- 2== "wth2018-vote-demo"
-	print botname
+	print(botname)
 
 # run the app
 if __name__ == "__main__":
