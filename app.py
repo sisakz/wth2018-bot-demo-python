@@ -57,9 +57,13 @@ def getMessage(messageId):
 	r = requests.get(url, headers={'Authorization': 'Bearer MDUwMjExYjAtYjVmZS00MWFiLWFjN2QtMzQ3ZmY1YWYxNDFmMmFkMTJmMTctM2Jm_PF84_4a05e5c1-65cb-4f86-899f-dbcc12a1af24'})
 	return r.json()["text"]
 
+# process the message
 def processMessage(message):
-	botname = message[17:] #- 2== "wth2018-vote-demo"
-	print(botname)
+	global yes
+	command = message[18:] #- 2== "wth2018-vote-demo"
+	print(command)
+	if command == "vote yes":
+		yes += 1
 
 # run the app
 if __name__ == "__main__":
