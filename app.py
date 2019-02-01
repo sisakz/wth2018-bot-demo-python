@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, send_from_directory
 import json
 import os
+import requests
 
 # Global states for store voting
 yes = 0
@@ -44,11 +45,18 @@ def hook():
 		return webhookMessage
 	if request.method == 'POST':
 		webhookMessage = request.json
-		print(webhookMessage["data"]["id"])
+		messageId = webhookMessage["data"]["id"]
+		message = getMessage(messageId)
+		print(message)
 		return jsonify(webhookMessage)
 
+# GET message by messageId
+def getMessage(messageId):
+	url = "https://api.ciscospark.com/v1/messages"
+	r = requests.get(url, headers={'Authorization': 'Bearer MDUwMjExYjAtYjVmZS00MWFiLWFjN2QtMzQ3ZmY1YWYxNDFmMmFkMTJmMTctM2Jm_PF84_4a05e5c1-65cb-4f86-899f-dbcc12a1af24'})
+	return r.text
 
-
+# run the app
 if __name__ == "__main__":
 	# run Flask HTTP server
 	app.run()
