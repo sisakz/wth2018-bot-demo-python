@@ -59,11 +59,13 @@ def getMessage(messageId):
 
 # process the message
 def processMessage(message):
-	global yes
+	global yes, no
 	command = message[18:] #- 2== "wth2018-vote-demo"
 	print(command)
 	if command == "vote yes":
 		yes += 1
+	if command == "vote no":
+		no += 1
 
 # run the app
 if __name__ == "__main__":
