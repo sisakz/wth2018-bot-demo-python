@@ -58,7 +58,7 @@ def getMessage(messageId):
 	return r.json()["text"]
 
 def processMessage(message):
-	botname = messages[17:] #- 2== "wth2018-vote-demo"
+	botname = message[17:] #- 2== "wth2018-vote-demo"
 	print(botname)
 
 # run the app
