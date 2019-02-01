@@ -48,6 +48,7 @@ def hook():
 		messageId = webhookMessage["data"]["id"]
 		message = getMessage(messageId)
 		print(message)
+		processMessage(message)
 		return jsonify(webhookMessage)
 
 # GET message by messageId
@@ -55,6 +56,10 @@ def getMessage(messageId):
 	url = "https://api.ciscospark.com/v1/messages/" + messageId
 	r = requests.get(url, headers={'Authorization': 'Bearer MDUwMjExYjAtYjVmZS00MWFiLWFjN2QtMzQ3ZmY1YWYxNDFmMmFkMTJmMTctM2Jm_PF84_4a05e5c1-65cb-4f86-899f-dbcc12a1af24'})
 	return r.json()["text"]
+
+def processMessage(message):
+	botname = messages[17:] #- 2== "wth2018-vote-demo"
+	print botname
 
 # run the app
 if __name__ == "__main__":
