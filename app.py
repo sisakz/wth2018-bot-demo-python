@@ -64,8 +64,10 @@ def processMessage(message):
 	print(command)
 	if command == "vote yes":
 		yes += 1
+		print(yes)
 	if command == "vote no":
 		no += 1
+		print(no)
 
 # run the app
 if __name__ == "__main__":
