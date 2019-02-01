@@ -44,7 +44,7 @@ def hook():
 		return webhookMessage
 	if request.method == 'POST':
 		webhookMessage = request.json
-		print(webhookMessage["data"])
+		print(webhookMessage["data"]["id"])
 		return jsonify(webhookMessage)
 
 
