@@ -25,10 +25,11 @@ def serve_static_dir(path):
 # POST - submit a new vote
 @app.route("/api/vote", methods = ['POST', 'GET'])
 def vote():
-		global yes, no
+		
 		if request.method == 'GET':
 				return jsonify(yes = yes, no = no)
 		if request.method == 'POST':
+				global yes, no
 				vote = request.json["vote"]
 				if vote == "yes":
 					yes += 1
