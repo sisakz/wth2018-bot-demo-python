@@ -60,13 +60,13 @@ def getMessage(messageId):
 # process the message
 def processMessage(message):
 	global yes, no
-	print("before yes: " + yes)
-	print("before no: " + no)
+	print("before yes: " + str(yes))
+	print("before no: " + str(no))
 	command = message[18:] #- 2== "wth2018-vote-demo"
 	print(command)
 	if command == "vote yes":
 		yes += 1
-		print("after yes: " + yes)
+		print("after yes: " + str(yes))
 	if command == "vote no":
 		no += 1
 		print(no)
